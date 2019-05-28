@@ -1,11 +1,18 @@
 import React from 'react';
 import './App.css';
-import { MapContainer } from './Components/ContainerComponent';
+import  MapContainer  from './Components/ContainerComponent';
 
 function App() {
   return (
     <div className="App">
-    <MapContainer></MapContainer>
+    
+
+      <MapContainer>
+
+      </MapContainer>
+
+
+        
     </div>
   );
 }
