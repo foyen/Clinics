@@ -1,6 +1,7 @@
 import React from "react";
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from "google-maps-react";
 import { CONSTANTS } from "../utils/Constants.js";
+import placesService from  "../Services/PlacesServices.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 
@@ -22,6 +23,15 @@ export class MapContainer extends React.Component {
         borderRadius: "5px",
         margin:"0px"
     };
+
+    placesService.searchPlaces({
+        input:"85295",
+        inputtype:"textquery",
+        fields:["photos","formatted_address","name","rating"]
+
+    }).then((message) =>{
+        console.log(message);
+    })
 
     return (
       <div className="search ">
