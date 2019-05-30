@@ -58,6 +58,7 @@ hr{
 .place{
   min-height: 120px;
   border: solid 1px #566573 ;
+  margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
   background-color: #D1F2EB   ;

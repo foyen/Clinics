@@ -11,69 +11,67 @@ export class MapContainer extends React.Component {
 
     this.state = {
       places: null,
-      zipCode: new Number(),
-      makers: [],
-      clinics: []
+      zipCode: '',
+      activeMarker: {},
+      selectedPlace: {},
+      showingInfoWindow: false,
+      map: null,
+      service: null
     };
   }
   CreateClient = () => {};
   callback = (result, status) => {
-
-        // let newArray = result.map(x => {
-        //     x = new this.props.google.maps.Marker({
-        //         map: this.props.google.maps.Map,
-        //         position: {lat: 33.4484, lng: -112.0740}
-        //     })
-        // });
-
-        // let x = []
-        // x.push(new this.props.google.maps.Marker({
-        //     map: this.props.google.maps.Map,
-        //     position: {lat: 33.4484, lng: -112.0740}}));
-
-        // let y = new this.props.google.maps.Marker({
-        //     map: this.props.google.maps.Map,
-        //     position: {lat: 33.4484, lng: -112.0740}});
-
-        //     let x = <Marker position={{lat: 33.4484, lng: 33.4484221}} />
-
-        // console.log(x);
-
-
-      // result      // new Result
-      // [{1},{2},{3}] -> [{1,2}, {{3,4}}, {5,6}]
       
     this.setState({
       places: result,
     });
-    // result.forEach(element => {
-    //    this.state.makers.push( new this.props.google.maps.Marker({
-    //     map: this.props.google.maps.Map,
-    //     draggable: true,
-    //     position: {lat: 40.714, lng: -74.006}
-    //   }))
-    // });
     console.log(this.state.places);
-    console.log(this.state.makers);
-    //console.log(this.state.places[0].geometry.location.lat());
-    //console.log(this.state.places[0].geometry.location.lng());
   };
 
+  onChange = event => {
+    console.log(this.state.zipCode)
+    console.log(event.target.value)
+    this.setState ({
+      zipCode: event.target.value
+    })
+    console.log(this.state.zipCode)
+  }
+
   ApiCall = (mapProps, map) => {
-    const { google } = mapProps;
-    const service = new google.maps.places.PlacesService(map);
-    service.textSearch(
+    var service
+    if (this.state.service === null) {
+      this.setState({
+        service: new window.google.maps.places.PlacesService(map),
+        map: map
+      });
+    } else {
+      this.setState({
+        map: map,
+      });
+    }
+    
+    const { google } =  window.google;
+    this.state.service.textSearch(
       {
-        location: new google.maps.LatLng(
+        location: new window.google.maps.LatLng(
           CONSTANTS.phoenixCoordinates.lat,
           CONSTANTS.phoenixCoordinates.lng
         ),
-        radius: "500",
-        query: "clinic"
+        radius: "1000",
+        query: "clinic "+ this.state.zipCode
       },
       this.callback
     );
   };
+
+  onMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  }
+
   componentDidMount() {}
   render() {
     const style = {
@@ -82,20 +80,6 @@ export class MapContainer extends React.Component {
       borderRadius: "5px",
       margin: "0px"
     };
-    // placesService.searchPlaces("85296")
-
-    // placesService.searchPlaces({
-    //     input:"85295",
-    //     inputtype:"textquery",
-    //     fields:["photos","formatted_address","name","rating"]
-
-    // }).then((message) =>{
-    //     console.log(message);
-    // })
-
-    // {this.state.places.map((place) =>{
-    //     return (<Marker name={place.name} position={{lat:place.geometry.location.lat, lng:place.geometry.location.lng}}></Marker>)
-    // })}
 
     return (
       <div className="search ">
@@ -105,63 +89,70 @@ export class MapContainer extends React.Component {
               <div className="row">
                 <div className="col col-md-8">
                   <input
+                    name="zipCode"
                     type="number"
                     className="form-control "
                     placeholder="Zip Code"
+                    onChange={this.onChange}
+                    value={this.state.zipCode}
                   />
                 </div>
 
-                <button className="btn btn-primary col col-md-4">
-                  
+                <button onClick={this.ApiCall}  className="btn btn-primary col col-md-4">
                   Search
                 </button>
               </div>
             </div>
             <div>
-                
-              <div className="place">
-                <div className="place-name">Name Goes Here</div>
-                <hr />
-                <div className="row">
-                  <div className="col offset-md-1 col-md-2 place-label">
-                    {" "}
-                    <b>Phone:</b>
-                  </div>{" "}
-                  <div className="col col-md-8 place-text">480-999-999</div>
-                </div>
-                <div className="row"></div>
-                  <div className="col offset-md-1 col-2 place-label">
-                    {" "}
-                    <b>Address:</b>
-                  </div>{" "}
-                  <div className="col col-md-8 place-text">
-                    ssss ssssss ssssss ssssssssss sssss sssssssss sssss ssssssss
-                    ssssssss sssssssss sssss sssssssssss
-                  </div>
-                  <div className="row">
-                  <div className="col offset-md-1 col-2 place-label">
-                    {" "}
-                    <b>Distance:</b>
-                  </div>{" "}
-                  <div className="col col-md-8 place-text"> 0.5 mi</div>
-                </div>
-                </div>
+            {true && this.state.places === null ? null : this.state.places.map(x => {
+                return (
+                    <div className="place">
+                    <div className="place-name">{x.name}</div>
+                    <hr />
+                    <div className="row">
+                    <div className="col offset-md-1 col-md-2 place-label">
+                        <b>Address:</b>
+                      </div>
+                      <div className="col col-md-8 place-text">
+                        {x.formatted_address}
+                      </div>
+                    </div>
+                      <div className="row">
+                      <div className="col offset-md-1 col-md-2 place-label">
+                        <b>Distance:</b>
+                      </div>
+                      <div className="col col-md-8 place-text"> 0.5 mi</div>
+                    </div>
+                    </div>
+                    
+                )
+            })}
 
+            
               </div>
             </div>
-          </div>
-          <div className="map-section col col-6">
+          
+          <div id="map" className="map-section col col-6">
             <Map
               style={style}
-              google={this.props.google}
+              google={window.google}
               onReady={this.ApiCall}
               initialCenter={CONSTANTS.phoenixCoordinates}
               zoom={10}
             >
                 {this.state.places === null ? null : this.state.places.map(x => {
-                    return (<Marker name="Fuck me" position={{lat:x.geometry.location.lat(), lng: x.geometry.location.lng()}} />)
+                    return (
+                    <Marker key={x.id} title={x.name} 
+                    onClick={this.state.onMarkerClick} 
+                    animation={this.props.google.maps.Animation.DROP} 
+                    position={
+                      { lat:x.geometry.location.lat(),
+                        lng: x.geometry.location.lng()}
+                      } />
+                        )
                 })}
             </Map>
+          </div>
           </div>
         </div>
     );
