@@ -4,6 +4,8 @@ class GooglePlacesService {
     constructor(apikey, options){
         this.apikey = apikey;
         this.options = options;
+       
+        this.service = null
 
         this.searchPlaces = this.searchPlaces.bind(this);
         this._buildParams = this._buildParams.bind(this);
@@ -11,7 +13,12 @@ class GooglePlacesService {
     
     
 
-    _buildParams(){
+    _buildParams(placeSearchParams){
+        let paramStr = Object.keys(placeSearchParams)
+        .filter(k => !!placeSearchParams[k])
+        .map(k => `${k}=${placeSearchParams[k]}`).join('&');
+
+        return paramStr = `${CONSTANTS.placesApiUrl}?${paramStr}`;
 
     }
 
@@ -24,29 +31,27 @@ class GooglePlacesService {
             key: this.apikey
             
         }
+        
 
-        let paramStr = Object.keys(placeSearchParams)
-        .filter(k => !!placeSearchParams[k])
-        .map(k => `${k}=${placeSearchParams[k]}`).join('&');
-
-        paramStr = `${CONSTANTS.placesApiUrl}?${paramStr}`;
+       let paramStr = this._buildParams(placeSearchParams)
         
         return new Promise(function(resolve, reject){
-
-            const xhr = new XMLHttpRequest();
             
-            xhr.open("GET", paramStr);
-            xhr.setRequestHeader("Access-Control-Request-Headers", "x-requested-with");
-            console.log(paramStr)
-            xhr.onload = () => resolve(xhr.responseText);
-            xhr.onerror = () => reject(xhr.statusText);
-            xhr.send();
+
+            
         })
 
     
     }
 
-    geocode(){
+    geocode(zipCode){
+        var request ={
+            query:zipCode
+        }
+        console.log(  this.service)
+        this.service.textSearch(request, function(data){
+            console.log(data);
+        })
 
     }
 
