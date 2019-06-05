@@ -1,10 +1,20 @@
 
 .App {
   text-align: center;
-  width: 1600px;
+  width: 1200px;
   min-height: 960px;
   background-color:#f7f7f7;
   margin: auto;
+}
+.right{
+  float: right;
+  display: inline-block;
+
+}
+
+.left{
+  float: left;
+  display: inline-block;
 }
 
 
@@ -79,3 +89,68 @@ hr{
 .place-label{
   margin-right: 5px;
 }
+
+#main-column{
+  width:70%;
+}
+#right-column{
+  border: 1px black solid;
+  width:30%;
+  height:700px;
+  margin: 5px 0;
+}
+.summary{
+  margin:10px;
+}
+#left-column{
+
+}
+#top-content{
+  border: 1px black solid;
+  height:450px;
+  margin:5px
+}
+#main-picture{
+  border: 1px black solid;
+  height: 50%;
+  width: 100%;
+  padding:10px
+}
+
+#middle-content{
+  border: 1px black solid;
+  height:400px;
+  margin:5px
+}
+#bottom-content{
+  border: 1px black solid;
+  height:150px;
+  margin:5px
+}
+
+#middle-content .col{
+
+  height: 400px;
+  
+}
+.btn-holder{
+
+}
+.col-content {  
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  height: 198px;
+  font-family:   'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+}
+
+
+.col-img{
+  border: 1px black solid;
+  height: 150px;
+  padding:10px;
+  width: 100%;
+}
+
+
+

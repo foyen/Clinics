@@ -24,7 +24,7 @@ class GooglePlacesService {
 
     searchPlaces(options){
 
-     var  placeSearchParams = {
+    var  placeSearchParams = {
             input: options.input,
             inputtype: options.inputtype,
             fields: options.fields.toString(),
@@ -33,7 +33,7 @@ class GooglePlacesService {
         }
         
 
-       let paramStr = this._buildParams(placeSearchParams)
+        let paramStr = this._buildParams(placeSearchParams)
         
         return new Promise(function(resolve, reject){
             
@@ -54,8 +54,6 @@ class GooglePlacesService {
         })
 
     }
-
-
 }
 
 const placesService = new GooglePlacesService(CONSTANTS.apiKey, null)

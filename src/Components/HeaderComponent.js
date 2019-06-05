@@ -3,29 +3,45 @@ import { CONSTANTS } from "../utils/Constants.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 
-export class MapContainer extends React.Component {
-
+export class HeaderComponent extends React.Component {
     constructor(props) {
-        super(props)
+    super(props);
+
+    this.state = {
+        
+    }
+
+    }
+
+    
+    componentDidMount(){
+        
+        //check current page so tabbed bar can be rendered.
     }
 
     render() {
-        <div>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
+    return (
+        <div id="nav-wrapper">
+            <ul className="nav">
+                <li className="nav-item">
+                    <a className="nav-link active" href="#">
+                        Home
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">
+                        Category 1
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">
+                        Category 2
+                    </a>
                 </li>
             </ul>
         </div>
+    );
     }
-
 }
+
+export default HeaderComponent;
