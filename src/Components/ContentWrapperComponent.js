@@ -1,5 +1,7 @@
 import React from "react";
 import { CONSTANTS } from "../utils/Constants.js";
+import {ContactUsComponent}  from "../Components/ContactUsFormComponent.js"
+
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 
@@ -68,7 +70,8 @@ export class ContentWrapperComponent extends React.Component {
                     </section>
                 <section id="bottom-content">
                 <h3>Contact Us</h3>
-                
+                <ContactUsComponent></ContactUsComponent>
+
                 </section>
 
             </div>
