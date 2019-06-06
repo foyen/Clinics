@@ -1,47 +1,26 @@
-import React from "react";
+import React, { Component } from "react";
 import { CONSTANTS } from "../utils/Constants.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
-
-export class HeaderComponent extends React.Component {
-    constructor(props) {
-    super(props);
-
-    this.state = {
-        
-    }
-
-    }
-
-    
-    componentDidMount(){
-        
-        //check current page so tabbed bar can be rendered.
-    }
-
-    render() {
+class HeaderComponent extends Component {
+  render() {
     return (
-        <div id="nav-wrapper">
-            <ul className="nav">
-                <li className="nav-item">
-                    <a className="nav-link active" href="#">
-                        Home
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">
-                        Category 1
-                    </a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">
-                        Category 2
-                    </a>
-                </li>
-            </ul>
-        </div>
+      <div>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/map">
+              Map
+            </a>
+          </li>
+        </ul>
+      </div>
     );
-    }
+  }
 }
 
 export default HeaderComponent;
