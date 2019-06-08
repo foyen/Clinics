@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { CONSTANTS } from "../utils/Constants.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
+import "../Styles/nav.css"
 class HeaderComponent extends Component {
   render() {
     return (
-      <div>
-        <ul class="nav justify-content-end">
+      <div id="navigation-wrapper">
+        <ul class="nav justify-content-end ">
           <li class="nav-item">
             <a class="nav-link active" href="/">
               Home

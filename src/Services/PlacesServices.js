@@ -9,11 +9,25 @@ class GooglePlacesService {
 
         this.searchPlaces = this.searchPlaces.bind(this);
         this._buildParams = this._buildParams.bind(this);
+        
     }
     
     
 
     _buildParams(placeSearchParams){
+
+        let paramStr = Object.keys(object)
+        .filter(k => !!object[k])
+        .Map(k => `${k}=${object[k]}`).map(k => `${k}=${object[k]}` ).join('&');
+
+        var object ={
+            a:{c:1,d:2},
+            b:{c:1,d:2}
+        }
+
+        return paramStr = `${"sssds"}?${paramStr}`;
+
+
         let paramStr = Object.keys(placeSearchParams)
         .filter(k => !!placeSearchParams[k])
         .map(k => `${k}=${placeSearchParams[k]}`).join('&');
@@ -43,6 +57,8 @@ class GooglePlacesService {
 
     
     }
+
+    
 
     geocode(zipCode){
         var request ={

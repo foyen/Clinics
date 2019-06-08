@@ -115,76 +115,24 @@ onMarkerClick = (props, marker, e) => {
 componentDidMount() { }
 render() {
   const style = {
-    height: "685px",
-    position: "initial !important",
+    height: "100%",
+    position: "absolute !important",
+    top:"0",
+    zIndex: "-0",
     borderRadius: "5px",
     margin: "0px"
   };
 
   return (
-    <div className="search ">
-      <div className="row">
-        <div className="places-section col col-3 ">
-          <div className="zipCode">
-            <div className="row">
-              <div className="col col-md-8">
-                <input
-                  name="zipCode"
-                  type="number"
-                  className="form-control "
-                  placeholder="Zip Code"
-                  onChange={this.onChange}
-                  value={this.state.zipCode}
-                />
-              </div>
 
-              <button onClick={this.ApiCall} className="btn btn-primary col col-md-4">
-                Search
-                </button>
-            </div>
-          </div>
-          <div>
-            {true && this.state.places === null ? null : this.state.places.map(x => {
-              return (
-                <div className="place">
-                  <div className="place-name">{x.name}</div>
-                  <hr />
-                  <div className="row">
-                    <div className="col offset-md-1 col-md-2 place-label">
-                      <b>Address:</b>
-                    </div>
-                    <div className="col col-md-8 place-text">
-                      {x.formatted_address}
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col offset-md-1 col-md-2 place-label">
-                      <b>Distance:</b>
-                    </div>
-                    <div className="col col-md-8 place-text"> {x.formatted_address}</div>
-                  </div>
-                  <div className="row">
-                    <div className="col offset-md-1 col-md-2 place-label">
-                      <b>Distance:</b>
-                    </div>
-                    <div className="col col-md-8 place-text"> 0.5 mi</div>
-                  </div>
-                </div>
-
-              )
-            })}
-
-
-          </div>
-        </div>
-
-        <div id="map" className="map-section col col-6">
+    <div className="search">
+          <div id="map" className="map-section">
           <Map
             style={style}
             google={window.google}
             onReady={this.ApiCall}
             initialCenter={CONSTANTS.phoenixCoordinates}
-            zoom={10}
+            zoom={13}
           >
             {this.state.places === null ? null : this.state.places.map(x => {
               return (
@@ -200,6 +148,57 @@ render() {
               )
             })}
           </Map>
+        </div>
+      <div  className="row">
+        <div className="places-section col col-3">
+          <div className="zipCode">
+            <div className="row">
+              <div className="col col-md-8">
+                <input
+                  name="zipCode"
+                  type="number"
+                  className="form-control"
+                  placeholder="Zip Code"
+                  onChange={this.onChange}
+                  value={this.state.zipCode}
+                />
+              </div>
+            <button onClick={this.ApiCall} className="btn btn-primary col col-md-4">
+                Search
+            </button>
+            </div>
+          </div>
+          <div className="places">
+          {true && this.state.places === null ? null : this.state.places.map(x => {
+              return (
+                <div className="place">
+                    <div className="place-name">{x.name}</div>
+                    <hr />
+                    <div className="row">
+                    <div className="col offset-md-1 col-md-2 place-label">
+                        <b>Address:</b>
+                    </div>
+                    <div className="col col-md-8 place-text">
+                        {x.formatted_address}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col offset-md-1 col-md-2 place-label">
+                    <b>Contact:</b>
+                    </div>
+                    <div className="col col-md-8 place-text"></div>
+                </div>
+                <div className="row">
+                    <div className="col offset-md-1 col-md-2 place-label">
+                        <b>Distance:</b>
+                    </div>
+                    <div className="col col-md-8 place-text"> 0.5 mi</div>
+                    </div>
+                </div>
+              )
+            })}
+          </div>
+
         </div>
       </div>
     </div>
