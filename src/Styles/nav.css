@@ -1,0 +1,22 @@
+#navigation-wrapper{
+
+    background-color: #D1F2EB;
+    border-bottom: 3px solid #0E6655 ; 
+}
+
+#navigation-wrapper ul {
+    height: 75px;
+    align-items: center;
+}
+
+#navigation-wrapper .nav-item {
+    padding-right: 25px;
+}
+
+#navigation-wrapper .nav-item:hover {
+    background-color: #ABEBC6  ;
+}
+
+
+
+
