@@ -1,0 +1,114 @@
+
+img{
+    height: 100%;
+    width: 100%;
+}
+.clearfix:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+ }
+.pop{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+div{
+    border-color: #CCCCCC;
+}
+#main-column{
+    width:70%;
+    display: inline;
+    float: left;
+  }
+  #content-wrapper{
+      width:60%;
+      margin:auto;
+      background-color: #f1f1f1;
+  }
+  #right-column{
+    border: 1px #CCCCCC solid;
+    display: inline;
+    float: right;
+    width:30%;
+    height:700px;
+    margin: 10px 0px
+  }
+  .summary{
+    margin:10px;
+    height: 40%;
+    text-overflow: ellipsis;
+    
+  }
+
+  #top-content{
+    border: 1px #CCCCCC solid;
+    min-height: 600px;
+    margin: 10px 5px;
+   
+  }
+  #main-picture{
+    height: 300px;
+    width: 100%;
+  }
+  #main-picture img{
+    height: 100%;
+    width: 100%;
+
+  }
+  
+  #middle-content{
+    border: 1px #CCCCCC solid;
+    height:400px;
+    margin:10px 5px;
+  }
+  #bottom-content{
+    border: 1px #CCCCCC solid;
+    margin:5px
+  }
+  
+  #middle-content .col{
+  
+    height: 400px;
+    
+  }
+  .btn-holder{
+  
+  }
+  .col-content {  
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    height: 198px;
+    font-family:   'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  
+  }
+  
+  
+  .col-img{
+
+    height: 150px;
+    padding:10px;
+    width: 100%;
+  }
+  
+  #contact-us-wrapper{
+    padding:10px
+  }
+
+  @media only screen and (max-width: 1200px) {
+    #content-wrapper{
+        width:95%;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    #content-wrapper{
+        width:100%
+    }
+    #main-column{
+        width: 100%
+    }
+    #right-column{
+        display: none;
+    }
+  }

@@ -7,14 +7,14 @@ class HeaderComponent extends Component {
   render() {
     return (
       <div id="navigation-wrapper">
-        <ul class="nav justify-content-end ">
-          <li class="nav-item">
-            <a class="nav-link active" href="/">
+        <ul className="nav justify-content-end ">
+          <li className="nav-item">
+            <a className="nav-link active" href="/">
               Home
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/map">
+          <li className="nav-item">
+            <a className="nav-link" href="/map">
               Map
             </a>
           </li>

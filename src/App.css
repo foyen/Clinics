@@ -2,8 +2,8 @@
 .App {
   text-align: center;
   width: 100%;
-  min-height: 960px;
-  background-color:#f7f7f7;
+  min-height: 100%;
+  background-color:#f1f1f1;
   margin: auto;
 }
 .right{
@@ -33,6 +33,7 @@ a div:hover{
   text-decoration: none;
 }
 
+
 hr{
   margin: 0px;
 }
@@ -54,6 +55,7 @@ hr{
 }
 
 .places{
+  position: relative;
   height: 700px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -62,102 +64,50 @@ hr{
 .places-section {
 
   padding: 5px 0 5px 0;
-  margin: 0 10px 0 10px;
+  margin: 60px 10px 0 26px;
   text-align: left;
-  width: 25%;
-  border: solid 1px black;
   background-color:#f7f7f7;
   
 }
 
-.place{
+.place-wrapper{
   min-height: 120px;
-  border: solid 1px #566573 ;
   margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
   background-color: #D1F2EB   ;
 }
+.place{
+  min-height: 120px;
+  border-bottom: 5px #D1F2EB solid;
+}
+
+.place:hover{
+  border-bottom: 5px yellow solid;
+}
 
 .place-name{
   padding: 5px;
-  text-align: center;
   font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
-.place-text{
-  text-align: left;
-  white-space: normal;
-  margin-left: 5px;
+.formatted-address{
+ padding: 5px;
 }
 
 .place-label{
   margin-right: 5px;
 }
 
-#main-column{
-  width:70%;
-}
-#right-column{
-  border: 1px black solid;
-  width:30%;
-  height:700px;
-  margin: 5px 0;
-}
-.summary{
-  margin:10px;
-}
-#left-column{
-
-}
-#top-content{
-  border: 1px black solid;
-  height:600px;
-  margin:5px
-}
-#main-picture{
-  border: 1px black solid;
-  height: 60%;
-  width: 100%;
-  padding:10px
-}
-
-#middle-content{
-  border: 1px black solid;
-  height:400px;
-  margin:5px
-}
-#bottom-content{
-  border: 1px black solid;
-  margin:5px
-}
-
-#middle-content .col{
-
-  height: 400px;
-  
-}
-.btn-holder{
-
-}
-.col-content {  
-  overflow-y: hidden;
-  text-overflow: ellipsis;
-  height: 198px;
-  font-family:   'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-
-}
-
-
-.col-img{
-  border: 1px black solid;
-  height: 150px;
-  padding:10px;
+#map{
+  height: 90%;
   width: 100%;
 }
 
-#contact-us-wrapper{
-  padding:10px
+@media only screen and (max-width: 800px) {
+  #map{
+    display: none;
+  }
 }
 
 
