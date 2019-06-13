@@ -46,8 +46,9 @@ export class MapContainer extends React.Component {
     console.log(props);
 
     this.state = {
-      places: null,
-      zipCode: '',
+      places: [],
+      zipCode: '85295',
+      prevZipCode:"default",
       activeMarker: {},
       selectedPlace: {},
       showingInfoWindow: false,
@@ -61,48 +62,61 @@ export class MapContainer extends React.Component {
 
 callback = (result, status) => {
 
-  this.setState({
-    places: result,
-  });
-  console.log(this.state.places);
+    this.setState({
+        places: result, 
+        prevZipCode: this.state.zipCode
+    });
+    console.log(result)
 };
 
-onChange = event => { 
+setCenter =(result, status) =>{
+    console.log( result.length)
+    if(result.length >0){
+      setTimeout(()=>{
+        this.state.map.setCenter({lat:result[0].geometry.location.lat() ,
+                                  lng:result[0].geometry.location.lng()})
+      } , 1000)
+    }
+    
+}
 
-  console.log(this.state.zipCode)
-  console.log(event.target.value)
-  this.setState({
-    zipCode: event.target.value
-  })
-  console.log(this.state.zipCode)
+onChange = event => { 
+  if(event.target.value <= 99999){
+    this.setState({
+        zipCode: event.target.value
+      })
+  }
+  
+  
 }
 
 ApiCall = (mapProps, map) => {
-  var service
+
   if (this.state.service === null) {
     this.setState({
-      service: new window.google.maps.places.PlacesService(map),
-      map: map
+        service: new window.google.maps.places.PlacesService(map),
+        map: map
     });
-  } else {
-    this.setState({
-      map: map,
-    });
-  }
-
-  const { google } = window.google;
+}
+  
   this.state.service.textSearch(
     {
-      location: new window.google.maps.LatLng(
-        CONSTANTS.phoenixCoordinates.lat,
-        CONSTANTS.phoenixCoordinates.lng
-      ),
-      radius: "1000",
-      query: "clinic " + this.state.zipCode
+        location:CONSTANTS.phoenixCoordinates,
+        rankby:"distance",
+        radius: "1000",
+        maxResults:50,
+        query: "clinic Arizona" + this.state.zipCode,
     },
     this.callback
-  );
-};
+  )
+
+  this.state.service.textSearch(
+    {
+        location:CONSTANTS.phoenixCoordinates,
+        query: this.state.zipCode,
+    },
+    this.setCenter
+  )};
 
 onMarkerClick = (props, marker, e) => {
   this.setState({
@@ -116,15 +130,12 @@ componentDidMount() { }
 render() {
   const style = {
     height: "100%",
-    position: "absolute !important",
-    top:"0",
     zIndex: "-0",
     borderRadius: "5px",
     margin: "0px"
   };
 
   return (
-
     <div className="search">
           <div id="map" className="map-section">
           <Map
@@ -150,7 +161,7 @@ render() {
           </Map>
         </div>
       <div  className="row">
-        <div className="places-section col col-3">
+        <div className="places-section col-sm-6 col-md-3">
           <div className="zipCode">
             <div className="row">
               <div className="col col-md-8">
@@ -163,42 +174,33 @@ render() {
                   value={this.state.zipCode}
                 />
               </div>
-            <button onClick={this.ApiCall} className="btn btn-primary col col-md-4">
+            <button onClick={this.ApiCall} className="btn btn-primary col col-lg-4">
                 Search
             </button>
             </div>
           </div>
           <div className="places">
-          {true && this.state.places === null ? null : this.state.places.map(x => {
+          {true && this.state.places === null ? null : this.state.places.map((x, i) => {
               return (
-                <div className="place">
-                    <div className="place-name">{x.name}</div>
-                    <hr />
-                    <div className="row">
-                    <div className="col offset-md-1 col-md-2 place-label">
-                        <b>Address:</b>
+                <div key={x.id} className="place-wrapper">
+                                <div className="place">
+                    <div className="place-name">
+                        <b>{x.name}</b>
                     </div>
-                    <div className="col col-md-8 place-text">
-                        {x.formatted_address}
+                    <div className="formatted-address">
+                            {x.formatted_address}
                     </div>
-                </div>
-                <div className="row">
-                    <div className="col offset-md-1 col-md-2 place-label">
-                    <b>Contact:</b>
+                    <div className="formatted-address">
+                        480-329-0014
                     </div>
-                    <div className="col col-md-8 place-text"></div>
-                </div>
-                <div className="row">
-                    <div className="col offset-md-1 col-md-2 place-label">
-                        <b>Distance:</b>
-                    </div>
-                    <div className="col col-md-8 place-text"> 0.5 mi</div>
+                    <div className="formatted-address">
+                        .05 mi
                     </div>
                 </div>
-              )
+                </div>
+                )
             })}
           </div>
-
         </div>
       </div>
     </div>
