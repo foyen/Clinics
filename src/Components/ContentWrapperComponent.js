@@ -6,43 +6,21 @@ import "../Styles/ContentWrapper.css";
 
 export class ContentWrapperComponent extends React.Component {
   componentDidMount() {
-    //check current page so tabbed bar can be rendered.
+
   }
 
   render() {
     return (
-      <div id="content-wrapper" className="clearfix" >
-        <div id="main-column">
-          <section id="top-content" className="pop"  >
-            <div id="main-picture"   >
-              <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg" ></img>
-            </div>
-            <div className="summary">
-            <p>
-              Curabitur gravida arcu ac tortor dignissim convallis. Volutpat
-              commodo sed egestas egestas fringilla phasellus. Cras sed felis
-              eget velit aliquet sagittis. Neque gravida in fermentum et
-              sollicitudin ac orci phasellus egestas. Nibh venenatis cras sed
-              felis eget velit aliquet sagittis. Ullamcorper sit amet risus
-              nullam eget felis eget. Maecenas volutpat blandit aliquam etiam
-              erat velit. Posuere sollicitudin aliquam ultrices sagittis orci.
-              Placerat in egestas erat imperdiet sed euismod nisi. Mus mauris
-              vitae ultricies leo integer malesuada nunc vel. Dui accumsan sit
-              amet nulla facilisi morbi tempus iaculis. Nunc non blandit massa
-              enim nec dui. Pulvinar etiam non quam lacus suspendisse faucibus
-              interdum. Neque volutpat ac tincidunt vitae. Diam quis enim
-              lobortis scelerisque fermentum dui faucibus in ornare. Adipiscing
-              tristique risus nec feugiat in.
-            </p>
-            </div>
-          </section>
-          <section id="middle-content" className="pop">
-            <div className="row justify-content-md-center">
-              <div className="col">
-              <div className="col-img" >
-                  <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg"></img>
+      <div id="content-wrapper" >
+          <section id="top-content"  >
+            <div id="main-picture"  >
+              <div class="container">
+                <h1 id="main-title">Title Goes Here</h1>
+                <h3> Curabitur gravida arcu ac tortor dignissim convallis</h3>
+                <div id="zip-search">
               </div>
-                <div className="col-content">
+              <div id="summary">
+              <p>
                   Curabitur gravida arcu ac tortor dignissim convallis. Volutpat
                   commodo sed egestas egestas fringilla phasellus. Cras sed
                   felis eget velit aliquet sagittis. Neque gravida in fermentum
@@ -58,18 +36,50 @@ export class ContentWrapperComponent extends React.Component {
                   ac tincidunt vitae. Diam quis enim lobortis scelerisque
                   fermentum dui faucibus in ornare. Adipiscing tristique risus
                   nec feugiat in.
+                </p> 
                 </div>
-                <div className="btn-holder">
-                  <button type="button" className="btn btn-warning">
-                    Read More
+                <button class="btn btn-warning tell-more">Tell Me More</button>
+              </div>
+            </div>
+          </section>
+          <section id="middle-content">
+            <div className="row justify-content-md-center">
+              <div className="col pop">
+                <div className="col-img" >
+                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg"></img>
+                </div>
+                <div className="col-content">
+                <h4 className="col-title">commodo sed egestas</h4>
+                <p> Curabitur gravida arcu ac tortor dignissim convallis. Volutpat
+                  commodo sed egestas egestas fringilla phasellus. Cras sed
+                  felis eget velit aliquet sagittis. Neque gravida in fermentum
+                  et sollicitudin ac orci phasellus egestas. Nibh venenatis cras
+                  sed felis eget velit aliquet sagittis. Ullamcorper sit amet
+                  risus nullam eget felis eget. Maecenas volutpat blandit
+                  aliquam etiam erat velit. Posuere sollicitudin aliquam
+                  ultrices sagittis orci. Placerat in egestas erat imperdiet sed
+                  euismod nisi. Mus mauris vitae ultricies leo integer malesuada
+                  nunc vel. Dui accumsan sit amet nulla facilisi morbi tempus
+                  iaculis. Nunc non blandit massa enim nec dui. Pulvinar etiam
+                  non quam lacus suspendisse faucibus interdum. Neque volutpat
+                  ac tincidunt vitae. Diam quis enim lobortis scelerisque
+                  fermentum dui faucibus in ornare. Adipiscing tristique risus
+                  nec feugiat in.
+                  </p>
+                </div>
+                <div className="btn-holder clearfix">
+                  <button type="button" className="btn btn-warning read-more">
+                    Read More....
                   </button>
                 </div>
               </div>
-              <div className="col">
+              <div className="col pop">
                 <div className="col-img" >
                 <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg"></img>
                 </div>
                 <div className="col-content">
+                <h4 className="col-title">egestas fringilla phasellus</h4>
+                <p>
                   Curabitur gravida arcu ac tortor dignissim convallis. Volutpat
                   commodo sed egestas egestas fringilla phasellus. Cras sed
                   felis eget velit aliquet sagittis. Neque gravida in fermentum
@@ -85,18 +95,20 @@ export class ContentWrapperComponent extends React.Component {
                   ac tincidunt vitae. Diam quis enim lobortis scelerisque
                   fermentum dui faucibus in ornare. Adipiscing tristique risus
                   nec feugiat in.
+                </p>
                 </div>
                 <div className="btn-holder">
-                  <button type="button" className="btn btn-warning">
-                    Read More
+                  <button type="button" className="btn btn-warning read-more">
+                    Read More...
                   </button>
                 </div>
               </div>
-              <div className="col">
+              <div className="col pop">
               <div className="col-img" >
               <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg"></img>
                 </div>
                 <div className="col-content">
+                <h4 className="col-title">esse cillum dolore</h4>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
@@ -109,19 +121,18 @@ export class ContentWrapperComponent extends React.Component {
                   </p>
                 </div>
                 <div className="btn-holder">
-                  <button type="button" className="btn btn-warning">
-                    Read More
+                  <button type="button" className="btn btn-warning read-more">
+                    Read More...
                   </button>
                 </div>
               </div>
             </div>
           </section>
-          <section id="bottom-content" className="pop">
+          <hr></hr>
+          <section id="bottom-content" >
             <h3>Contact Us</h3>
             <ContactUsComponent />
           </section>
-        </div>
-        <div id="right-column" className="right pop" />
       </div>
     );
   }
