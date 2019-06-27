@@ -69,15 +69,14 @@ callback = (result, status) => {
     console.log(result)
 };
 
-setCenter =(result, status) =>{
+setCenter =(result, status) => {
     console.log( result.length)
     if(result.length >0){
       setTimeout(()=>{
         this.state.map.setCenter({lat:result[0].geometry.location.lat() ,
                                   lng:result[0].geometry.location.lng()})
       } , 1000)
-    }
-    
+    } 
 }
 
 onChange = event => { 
@@ -161,7 +160,7 @@ render() {
           </Map>
         </div>
       <div  className="row">
-        <div className="places-section col-sm-6 col-md-3">
+        <div className="places-section col-sm-12 col-md-5 col-lg-3">
           <div className="zipCode">
             <div className="row">
               <div className="col col-md-8">
@@ -191,7 +190,7 @@ render() {
                             {x.formatted_address}
                     </div>
                     <div className="formatted-address">
-                        480-329-0014
+                        480-329-9999
                     </div>
                     <div className="formatted-address">
                         .05 mi

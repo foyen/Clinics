@@ -3,6 +3,11 @@ img{
     height: 100%;
     width: 100%;
 }
+
+#main-title {
+ font-size: 54px;
+ padding: 20px 0;
+}
 .clearfix:after {
     content: " "; /* Older browser do not support empty content */
     visibility: hidden;
@@ -16,99 +21,146 @@ img{
 div{
     border-color: #CCCCCC;
 }
-#main-column{
-    width:70%;
-    display: inline;
-    float: left;
-  }
   #content-wrapper{
-      width:60%;
-      margin:auto;
+
+      width: 100%;
+      min-height: 100%;
       background-color: #f1f1f1;
   }
-  #right-column{
-    border: 1px #CCCCCC solid;
-    display: inline;
-    float: right;
-    width:30%;
-    height:700px;
-    margin: 10px 0px
+
+  .container {
+    display: flex;
+    flex-direction: column; 
   }
-  .summary{
+
+  #summary {
     margin:10px;
-    height: 40%;
-    text-overflow: ellipsis;
+    text-align: center;
+    padding: 10px 0;
+    align-self: end;
     
+
   }
 
   #top-content{
     border: 1px #CCCCCC solid;
-    min-height: 600px;
-    margin: 10px 5px;
+    min-height:100%;
+    color:wheat;
    
   }
   #main-picture{
-    height: 300px;
     width: 100%;
-  }
-  #main-picture img{
     height: 100%;
-    width: 100%;
+    /*background: url("https://www.freegreatpicture.com/files/30/20607-high-resolution-landscapes.jpg") no-repeat fixed center;*/
+    background-color: #D1F2EB;
+    background-position: center center;
+    background-size: cover;
+    color:black;
+  }
+
+  .tell-more{
+    width: 200px;
+    margin: 10px auto;
+  }
+  
+  #middle-content {
+    margin:10px 0px;
+    padding:40px;
+  }
+  #bottom-content{
+    margin:5px;
+    width: 50%;
+    margin: auto;
 
   }
   
-  #middle-content{
-    border: 1px #CCCCCC solid;
-    height:400px;
-    margin:10px 5px;
-  }
-  #bottom-content{
-    border: 1px #CCCCCC solid;
-    margin:5px
-  }
-  
   #middle-content .col{
-  
-    height: 400px;
+    height: 500px;;
+    max-width: 350px;
+    min-width: 350px;
+    margin: 10px 10px;
+
     
   }
-  .btn-holder{
-  
+  .col-title {
+    margin:5px 0;
+    font-family: 'Merriweather', serif;
+   text-align: center;
   }
+
   .col-content {  
     overflow-y: hidden;
     text-overflow: ellipsis;
-    height: 198px;
-    font-family:   'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    height: 43%;
+    font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
   
   }
   
   
   .col-img{
-
-    height: 150px;
-    padding:10px;
+    height: 45%;
     width: 100%;
+  }
+
+  .read-more{
+   float: right;
   }
   
   #contact-us-wrapper{
     padding:10px
   }
+  .container{
+    height: 100%;
+  }
+
+  #zip-search{
+    background-color:red;
+    height: 100px;
+    max-width: 500px;
+  }
+
 
   @media only screen and (max-width: 1200px) {
-    #content-wrapper{
-        width:95%;
-    }
   }
 
   @media only screen and (max-width: 800px) {
-    #content-wrapper{
-        width:100%
+    #bottom-content{
+      margin:20px;
+      width: 80%;
+      margin: auto;
     }
-    #main-column{
-        width: 100%
+
+#middle-content .col{
+      width: 100%;
+      display: block;
+      margin: 10px auto;
     }
+
+    #main-title {
+      font-size: 8vw;
+     }
+
     #right-column{
         display: none;
     }
   }
+
+  @media only screen and (max-width: 576px) {
+
+    #main-title {
+      font-size: 36px;
+     }
+
+  }
+
+  @media only screen and (max-width: 376px) {
+
+    #middle-content .col{
+      width: unset;
+      margin: 10px 0px;
+  
+      
+    }
+
+  }
+

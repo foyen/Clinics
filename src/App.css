@@ -1,6 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800|Roboto:300,400,500&display=swap");
+html {
+  min-height: 100%;
+  font-family: "Roboto", sans-serif;
+}
 
+body {
+  min-height: 100%;
+}
+
+main{
+  min-height: 100%;
+}
 .App {
-  text-align: center;
   width: 100%;
   min-height: 100%;
   background-color:#f1f1f1;
@@ -104,7 +115,7 @@ hr{
   width: 100%;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 576px) {
   #map{
     display: none;
   }
