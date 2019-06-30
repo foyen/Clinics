@@ -1,8 +1,10 @@
 import React from "react";
 import { CONSTANTS } from "../utils/Constants.js";
 import { ContactUsComponent } from "../Components/ContactUsFormComponent.js";
+import { ZipForm} from "./ZipForm";
 import "bootstrap/dist/css/bootstrap.css";
 import "../Styles/ContentWrapper.css";
+
 
 export class ContentWrapperComponent extends React.Component {
   componentDidMount() {
@@ -18,6 +20,7 @@ export class ContentWrapperComponent extends React.Component {
                 <h1 id="main-title">Title Goes Here</h1>
                 <h3> Curabitur gravida arcu ac tortor dignissim convallis</h3>
                 <div id="zip-search">
+                <ZipForm></ZipForm>
               </div>
               <div id="summary">
               <p>

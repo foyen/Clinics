@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { CONSTANTS } from "../utils/Constants.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 import "../Styles/nav.css"
