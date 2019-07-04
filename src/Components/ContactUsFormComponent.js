@@ -1,5 +1,4 @@
 import React from "react";
-import { CONSTANTS } from "../utils/Constants.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 
@@ -12,7 +11,7 @@ export class ContactUsComponent extends React.Component {
         name: "",
         subject: "",
         replayEmail: "",
-        phoneNumber: new Number()
+        phoneNumber: Number()
       }
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +28,7 @@ export class ContactUsComponent extends React.Component {
           <div className="row">
             <div className="col col-md">
               <div className="form-group">
-                <label for="name">Full Name</label>
+                <label htmlFor="name">Full Name</label>
                 <input
                   type="email"
                   className="form-control"
@@ -39,7 +38,7 @@ export class ContactUsComponent extends React.Component {
             </div>
             <div className="col-md">
               <div className="form-group">
-                <label for="subject">Subject</label>
+                <label htmlFor="subject">Subject</label>
                 <input
                   type="text"
                   className="form-control"
@@ -49,7 +48,7 @@ export class ContactUsComponent extends React.Component {
             </div>
             <div className="col-md">
               <div className="form-group">
-                <label for="name">Reply Email address</label>
+                <label htmlFor="name">Reply Email address</label>
                 <input
                   type="email"
                   className="form-control"
@@ -59,7 +58,7 @@ export class ContactUsComponent extends React.Component {
             </div>
           </div>
           <div className="form-group">
-            <label for="name">Message</label>
+            <label htmlFor="name">Message</label>
             <textarea
               type="text"
               row="4"
@@ -68,7 +67,7 @@ export class ContactUsComponent extends React.Component {
               placeholder="Message"
             />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Send
           </button>
         </form>

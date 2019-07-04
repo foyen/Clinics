@@ -1,5 +1,4 @@
 import React from "react";
-import { CONSTANTS } from "../utils/Constants.js";
 import { ContactUsComponent } from "../Components/ContactUsFormComponent.js";
 import { ZipForm} from "./ZipForm";
 import "bootstrap/dist/css/bootstrap.css";
@@ -7,20 +6,28 @@ import "../Styles/ContentWrapper.css";
 
 
 export class ContentWrapperComponent extends React.Component {
-  componentDidMount() {
+
+  constructor(props){
+    super(props)
+    this.state = {
+        zipCode: ""
+    }
+}
+  searchZip = (newZip) => {
 
   }
+  
 
   render() {
     return (
       <div id="content-wrapper" >
           <section id="top-content"  >
             <div id="main-picture"  >
-              <div class="container">
+              <div className="container">
                 <h1 id="main-title">Title Goes Here</h1>
                 <h3> Curabitur gravida arcu ac tortor dignissim convallis</h3>
                 <div id="zip-search">
-                <ZipForm></ZipForm>
+                <ZipForm zipCode={this.state.zipCode} search={this.searchZip} ></ZipForm>
               </div>
               <div id="summary">
               <p>
@@ -41,7 +48,7 @@ export class ContentWrapperComponent extends React.Component {
                   nec feugiat in.
                 </p> 
                 </div>
-                <button class="btn btn-warning tell-more">Tell Me More</button>
+                <button className="btn btn-warning tell-more">Tell Me More</button>
               </div>
             </div>
           </section>
@@ -49,7 +56,7 @@ export class ContentWrapperComponent extends React.Component {
             <div className="row justify-content-md-center">
               <div className="col pop">
                 <div className="col-img" >
-                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg"></img>
+                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg" alt="img"></img>
                 </div>
                 <div className="col-content">
                 <h4 className="col-title">commodo sed egestas</h4>
@@ -78,7 +85,7 @@ export class ContentWrapperComponent extends React.Component {
               </div>
               <div className="col pop">
                 <div className="col-img" >
-                <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg"></img>
+                <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg" alt="img"></img>
                 </div>
                 <div className="col-content">
                 <h4 className="col-title">egestas fringilla phasellus</h4>
@@ -108,7 +115,7 @@ export class ContentWrapperComponent extends React.Component {
               </div>
               <div className="col pop">
               <div className="col-img" >
-              <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg"></img>
+              <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/27C9/production/_103158101_tha.jpg" alt="img"></img>
                 </div>
                 <div className="col-content">
                 <h4 className="col-title">esse cillum dolore</h4>

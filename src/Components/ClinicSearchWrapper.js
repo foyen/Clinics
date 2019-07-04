@@ -24,18 +24,8 @@ export class ClinicSearchWrapper extends React.Component {
   callback = (result, status) => {
     this.setState({
         places: result, 
-        prevZipCode: this.state.zipCode
     });
-
-    this.state.service.textSearch(
-      {
-          location: CONSTANTS.phoenixCoordinates,
-          query: this.state.zipCode,
-      },
-      this.setCenter
-    )
     console.log(result)
-
 };
 
 setCenter =(result, status) => {
@@ -43,12 +33,26 @@ setCenter =(result, status) => {
     setTimeout(()=>{
       this.state.map.setCenter({lat:result[0].geometry.location.lat() ,
                                 lng:result[0].geometry.location.lng()})
-    } , 1000)
+
+      this.state.service.textSearch(
+        {
+          location: { lat: result[0].geometry.location.lat(), lng: result[0].geometry.location.lng() },
+          rankby: "distance",
+          radius: "1000",
+          maxResults: 50,
+          query: "clinic " + this.state.zipCode,
+        },
+        this.callback
+      )
+    } , 1500)
+
+  }else{
+    //error message
   } 
 }
 
   apiCall = (mapProps, map) => {
-
+    
     if (this.state.service === null) {
       this.setState({
           service: new window.google.maps.places.PlacesService(map),
@@ -57,16 +61,12 @@ setCenter =(result, status) => {
     }
     
     console.log(this.state.zipCode)
-
     this.state.service.textSearch(
       {
-          location:CONSTANTS.phoenixCoordinates,
-          rankby: "distance",
-          radius: "1000",
-          maxResults: 50,
-          query: "clinic " + this.state.zipCode,
+          location: CONSTANTS.phoenixCoordinates,
+          query: this.state.zipCode,
       },
-      this.callback
+      this.setCenter
     )
   }; 
 
@@ -78,10 +78,16 @@ onMarkerClick = (props, marker, e) => {
   });
 }
 searchClinics = (newZipCode) => {
+
   this.setState({
+    prevZipCode: this.state.zipCode,
     zipCode: newZipCode
-});
-this.apiCall(null, null)
+  }, function() {
+
+  if(this.state.zipCode !== this.state.prevZipCode) {
+    this.apiCall(null, null)
+  }
+  });
 }
 
 render() {

@@ -16,10 +16,10 @@ export class ZipForm extends Component {
             this.setState({
                 zipCode: event.target.value
             })
-            
         }
     }
     submit = () => {
+        
         this.props.search(this.state.zipCode);
     }
 
