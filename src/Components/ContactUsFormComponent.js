@@ -24,6 +24,7 @@ export class ContactUsComponent extends React.Component {
   render() {
     return (
       <div id="contact-us-wrapper">
+       <h3>Contact Us</h3>
         <form>
           <div className="row">
             <div className="col col-md">

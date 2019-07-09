@@ -83,7 +83,9 @@ searchClinics = (newZipCode) => {
     prevZipCode: this.state.zipCode,
     zipCode: newZipCode
   }, function() {
-
+    console.log("Search Clinics after set state");
+  console.log(this.state.prevZipCode)
+  console.log(this.state.zipCode)
   if(this.state.zipCode !== this.state.prevZipCode) {
     this.apiCall(null, null)
   }
