@@ -24,7 +24,7 @@ class HeaderComponent extends Component {
           <li className="nav-item dropdown">
           <button
           onClick={this.toggleOpen}
-          className="btn btn-secondary dropdown-toggle"
+          className="btn dropdown-toggle"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"

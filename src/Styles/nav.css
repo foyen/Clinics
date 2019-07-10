@@ -1,7 +1,12 @@
 #navigation-wrapper{
 
     background:linear-gradient(90deg, rgba(114,249,219,1) 0%, rgba(178,250,235,1) 50%, rgba(114,249,219,1) 100%);
-    border-bottom: 3px solid #0E6655 ; 
+    border-bottom: 3px solid #0E6655 ;
+    position: fixed;
+    top:0px;
+    z-index: 3;
+    width:100%;
+    
 }
 
 #navigation-wrapper ul {
@@ -15,6 +20,10 @@
 
 #navigation-wrapper .nav-item:hover {
     background-color: #ABEBC6  ;
+}
+
+.nav-item .btn{
+    color:#0056b3;
 }
 
 

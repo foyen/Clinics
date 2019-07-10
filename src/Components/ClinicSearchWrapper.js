@@ -120,10 +120,10 @@ render() {
                       {x.formatted_address}
                     </div>
                     <div className="formatted-address">
-                        480-329-9999
+
                     </div>
                     <div className="formatted-address">
-                        .05 mi
+
                     </div>
                 </div>
                 </div>

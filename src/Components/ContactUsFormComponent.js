@@ -1,79 +1,35 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
+import "../Styles/ContactUs.css"
 
-export class ContactUsComponent extends React.Component {
-  constructor(props) {
-    super(props);
+export class ContactUs extends React.Component {
 
-    this.state = {
-      form: {
-        name: "",
-        subject: "",
-        replayEmail: "",
-        phoneNumber: Number()
-      }
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-  };
 
   render() {
     return (
-      <div id="contact-us-wrapper">
-       <h3>Contact Us</h3>
-        <form>
-          <div className="row">
-            <div className="col col-md">
-              <div className="form-group">
-                <label htmlFor="name">Full Name</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="First and Last Name"
-                />
-              </div>
-            </div>
-            <div className="col-md">
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Subject"
-                />
-              </div>
-            </div>
-            <div className="col-md">
-              <div className="form-group">
-                <label htmlFor="name">Reply Email address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Email"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="form-group">
-            <label htmlFor="name">Message</label>
-            <textarea
-              type="text"
-              row="4"
-              className="form-control"
-              id="contactText"
-              placeholder="Message"
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Send
-          </button>
-        </form>
+    <div id="contactUs" className="clearfix">
+    <h2>Get in Touch With Us.</h2>
+    <div>
+    <div className="contact">
+          <h4>Phoenix Contact</h4>
+            Eduardo Gonzalez, PhD, MS<br/>
+            Assistant Professor, Division of Public Health and Translational Research Program Manager<br/>
+            Prevention Mobile Unit-Phoenix<br/>
+            Gonzalezfagoaga@email.arizona.edu<br/>
+            480-779-7904
       </div>
+      <div className="contact">
+          <h4>Tuscon Contact</h4>
+            Shelia Soto, MPH<br/>
+            Program Manager, Primary Prevention Mobile Unit-Tuscon <br/>
+            Ssoto2@email.arizona.edu<br/>
+            520-251-8418
+      </div>
+    </div>
+
+    </div>
     );
   }
 }
-export default ContactUsComponent;
+export default ContactUs;

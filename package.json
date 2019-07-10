@@ -3,16 +3,8 @@
   "version": "1.0.0",
   "description": "Clinics APP",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/foyen/Clinics.git"
-  },
   "author": "Francis Oyeniyi, Joseph Alan",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/foyen/Clinics/issues"
-  },
-  "homepage": "https://github.com/foyen/Clinics#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "google-maps-react": "^2.0.2",

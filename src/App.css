@@ -10,6 +10,7 @@ body {
 
 main{
   min-height: 100%;
+  margin-top: 75px;
 }
 .App {
   width: 100%;
@@ -46,7 +47,7 @@ a div:hover{
 
 
 hr{
-  margin: 0px;
+  margin: 0px !important;
 }
 
 .zipCode{
