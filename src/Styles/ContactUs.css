@@ -1,7 +1,8 @@
 #contactUs {
     font-family: 'Merriweather', serif;
     text-align: center;
-    background:linear-gradient(90deg, rgba(114,249,219,1) 0%, rgba(178,250,235,1) 50%, rgba(114,249,219,1) 100%);
+   /* background:linear-gradient(90deg, rgba(114,249,219,1) 0%, rgba(178,250,235,1) 50%, rgba(114,249,219,1) 100%);*/
+    background: #72f9db;
     padding: 10px 0;
     border-top: 3px solid #0E6655;
     

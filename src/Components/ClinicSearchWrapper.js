@@ -4,7 +4,6 @@ import { ZipForm} from "./ZipForm";
 import { CONSTANTS } from "../utils/Constants.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
-
 export class ClinicSearchWrapper extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +11,7 @@ export class ClinicSearchWrapper extends React.Component {
 
     this.state = {
       places: [],
-      zipCode: this.props.match.params.zipCode || "85285",
+      zipCode: this.props.location.zipCode || "85281",
       prevZipCode:"default",
       activeMarker: {},
       selectedPlace: {},
@@ -21,7 +20,7 @@ export class ClinicSearchWrapper extends React.Component {
       service: null
     };
   }
-  callback = (result, status) => {
+  callback = (result, status,pagination) => {
     this.setState({
         places: result, 
     });
@@ -38,9 +37,10 @@ setCenter =(result, status) => {
         {
           location: { lat: result[0].geometry.location.lat(), lng: result[0].geometry.location.lng() },
           rankby: "distance",
-          radius: "1000",
+          radius: "10000",
           maxResults: 50,
           query: "clinic " + this.state.zipCode,
+          fields: ["formatted_phone_number"]
         },
         this.callback
       )
@@ -109,7 +109,7 @@ render() {
             search={this.searchClinics}>
           </ZipForm>
           <div className="places">
-          {true && this.state.places === null ? null : this.state.places.map((x, i) => {
+          { this.state.places === null ? null : this.state.places.map((x, i) => {
               return (
                 <div key={x.id} className="place-wrapper">
                   <div className="place">

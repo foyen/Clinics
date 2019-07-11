@@ -11,7 +11,15 @@ export class ContentWrapperComponent extends React.Component {
       zipCode: ""
     };
   }
-  searchZip = newZip => {};
+  
+  searchZip = (newZip) => {
+    this.props.history.push({
+      pathname: '/map',
+      zipCode:newZip
+      })
+  };
+
+
 
   render() {
     return (
@@ -22,7 +30,6 @@ export class ContentWrapperComponent extends React.Component {
               <h1 id="main-title">Mobile Health Unit</h1>
               <h3> Find A Clinic Near You</h3>
               <div id="zip-search">
-                in development use map
                 <ZipForm zipCode={this.state.zipCode} search={this.searchZip} />
               </div>
               <div id="summary">
